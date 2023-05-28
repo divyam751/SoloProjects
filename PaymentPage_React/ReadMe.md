@@ -1,0 +1,1 @@
+This is Payment page created using React
