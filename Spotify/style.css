@@ -33,7 +33,16 @@ nav ul li {
   font-size: 1.3rem;
 }
 .container {
-  min-height: 75vh;
+  min-height: 62vh;
+  background-color: black;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  margin: 23px auto;
+  width: 70%;
+  border-radius: 12px;
+  padding: 34px;
+  background-image: url("bg.jpg");
 }
 .bottom {
   position: sticky;
@@ -43,8 +52,53 @@ nav ul li {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   color: white;
 }
+.icons {
+  margin-top: 14px;
+}
+.icons i {
+  cursor: pointer;
+}
+
 #myProgressBar {
   width: 80%;
+  cursor: pointer;
+}
+.songItemContainer {
+  margin-top: 70px;
+}
+.songItem {
+  height: 50px;
+  width: 80%;
+  background-color: white;
+  display: flex;
+  color: black;
+  margin: 12px 0;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 23px;
+}
+.songItem img {
+  width: 40px;
+  margin: 0 23px;
+  border-radius: 34px;
+}
+.timeStamp {
+  margin: 0 23px;
+}
+.timeStamp i {
+  cursor: pointer;
+}
+.songInfo {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  font-family: "Varela Round", sans-serif;
+}
+.songInfo img {
+  opacity: 0;
+  transition: opacity 1s ease-in;
 }
