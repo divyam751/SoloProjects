@@ -99,6 +99,7 @@ nav ul li {
   font-family: "Varela Round", sans-serif;
 }
 .songInfo img {
+  
   opacity: 0;
   transition: opacity 1s ease-in;
 }
