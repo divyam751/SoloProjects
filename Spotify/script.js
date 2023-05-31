@@ -1,6 +1,6 @@
 console.log("Welcome to my App");
 
-let songIndex = 0;
+let index = 0;
 let audioElement = new Audio("songs/1.mp3");
 let masterPlay = document.getElementById("MasterPlay");
 let myProgressBar = document.getElementById("myProgressBar");
@@ -89,11 +89,48 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
   (element) => {
     element.addEventListener("click", (e) => {
       makeAllPlays();
+      index = parseInt(e.target.id);
       e.target.classList.remove("fa-play-circle");
       e.target.classList.add("fa-pause-circle");
-      audioElement.src = "songs/1.mp3";
+      audioElement.src = `songs/${index+1}.mp3`;
       audioElement.currentTime = 0;
       audioElement.play();
+      masterPlay.classList.remove("fa-paly-circle");
+      masterPlay.classList.add("fa-pause-circle");
     });
   }
 );
+
+document.getElementById(`next`).addEventListener('click',()=>{
+    if(index == 5){
+      index = 0 ;
+    }
+    else{
+      index += 1;
+    }
+    audioElement.src = `songs/${index+1}.mp3`;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove("fa-paly-circle");
+    masterPlay.classList.add("fa-pause-circle");
+})
+document.getElementById("previous").addEventListener('click',()=>{
+    if(index == 0){
+      index = 5 ;
+    }
+    else{
+      index -= 1;
+    }
+    audioElement.src = `songs/${index+1}.mp3`;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove("fa-paly-circle");
+    masterPlay.classList.add("fa-pause-circle");
+})
+
+function updateBTN (index){
+  // document.getElementById(`${index}`)
+  let btn = document.getElementById(`${index}`);
+  btn.classList.remove("fa-paly-circle");
+  btn.classList.add("fa-pause-circle");
+}
