@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&family=Varela+Round&display=swap");
 body {
   background-color: antiquewhite;
+  background-color: orange
 }
 * {
   margin: 0;
@@ -16,6 +17,7 @@ nav ul {
   list-style-type: none;
   height: 65px;
   background-color: black;
+  background-color: purple;
   color: white;
 }
 nav ul li {
@@ -42,7 +44,7 @@ nav ul li {
   width: 70%;
   border-radius: 12px;
   padding: 34px;
-  background-image: url("bg.jpg");
+  background-image: url("bg3.jpg");
 }
 .bottom {
   position: sticky;
