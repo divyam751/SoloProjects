@@ -5,6 +5,8 @@ let audioElement = new Audio("songs/1.mp3");
 let masterPlay = document.getElementById("MasterPlay");
 let myProgressBar = document.getElementById("myProgressBar");
 let gif = document.getElementById("gif");
+let ds = document.getElementById("songDesc");
+// let songTime = document.getElementsByClassName("songTime");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
 
 let songs = [
@@ -12,29 +14,30 @@ let songs = [
     songName: "Get Ready To Fight",
     filePath: "songs/1.mp3",
     coverPath: "covers/1.jpg",
+    songTime : showCurrentTime(),
   },
   {
-    songName: "Get Ready To Fight",
+    songName: "Brother anthem",
     filePath: "songs/2.mp3",
     coverPath: "covers/2.jpg",
   },
   {
-    songName: "Get Ready To Fight",
+    songName: "Alan Walker – On My Way",
     filePath: "songs/3.mp3",
     coverPath: "covers/3.jpg",
   },
   {
-    songName: "Get Ready To Fight",
+    songName: "TONES DANCE MONKEY",
     filePath: "songs/4.mp3",
     coverPath: "covers/4.jpg",
   },
   {
-    songName: "Get Ready To Fight",
+    songName: "John legend - All of me",
     filePath: "songs/5.mp3",
     coverPath: "covers/5.jpg",
   },
   {
-    songName: "Get Ready To Fight",
+    songName: "Alan walker - The Spectre ",
     filePath: "songs/6.mp3",
     coverPath: "covers/6.jpg",
   },
@@ -44,6 +47,7 @@ songItems.forEach((element, i) => {
   // console.log(element, i);
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
+  // ds.innerText = songs[i].songName;
 });
 
 //Handle Play Pause Button
@@ -51,12 +55,22 @@ masterPlay.addEventListener("click", () => {
   if (audioElement.paused || audioElement.currentTime <= 0) {
     // console.log("played");
     audioElement.play();
+    // displaySong();
+    // ds.innerText = `${songs[0].songName}`;
+    ds.innerText = songs[index].songName;
+    showCurrentTime();
+
+
+
     removePlayButton(index);
     masterPlay.classList.remove("fa-play-circle");
     masterPlay.classList.add("fa-pause-circle");
     gif.style.opacity = 1;
   } else {
     audioElement.pause();
+    // displaySong();
+    ds.innerText = songs[index].songName;
+    showCurrentTime();
     removePauseButton(index);
     masterPlay.classList.remove("fa-pause-circle");
     masterPlay.classList.add("fa-play-circle");
@@ -80,6 +94,12 @@ function removePlayButton(index) {
   }
 audioElement.addEventListener("timeupdate", () => {
   // console.log("timeupdate");
+  console.log(parseInt(audioElement.currentTime));
+
+
+
+
+
   let progress = parseInt(
     (audioElement.currentTime / audioElement.duration) * 100
   );
@@ -97,6 +117,8 @@ const makeAllPlays = () => {
     (element) => {
       element.classList.remove("fa-pause-circle");
       element.classList.add("fa-play-circle");
+     
+      // songTime.innerText = parseInt(audioElement.currentTime);
     }
     );
   };
@@ -125,7 +147,8 @@ document.getElementById(`next`).addEventListener('click',()=>{
     else{
       index += 1;
     }
-    // console.log(index);
+    console.log(index);
+    ds.innerText = songs[index].songName;
     removePlayButton(index);
     if(index > 0){
       removePauseButton(index-1);
@@ -158,6 +181,8 @@ document.getElementById("previous").addEventListener('click',()=>{
       removePlayButton(index);
       removePauseButton(index+1);
     }
+    console.log(index);
+    ds.innerText = songs[index].songName;
    
     audioElement.src = `songs/${index+1}.mp3`;
     audioElement.currentTime = 0;
@@ -166,3 +191,43 @@ document.getElementById("previous").addEventListener('click',()=>{
     masterPlay.classList.add("fa-pause-circle");
     gif.style.opacity = 1;
 });
+
+const displaySong = ()=>{
+  
+  let ds = document.getElementById("songDesc");
+  switch (index){
+    case 0 : ds.innerText = "1st song";
+    case 1 : ds.innerText = "2st song";
+    
+    
+    
+  }
+}
+
+
+
+
+function showCurrentTime() {
+  // Get the <span> element
+  var currentTimeSpan = document.getElementById('current-time');
+
+  
+
+  // Update the current time when the song is playing
+  audioElement.addEventListener('timeupdate', function() {
+    var currentTime = audioElement.currentTime;
+
+    // Format the current time as minutes and seconds
+    var minutes = Math.floor(currentTime / 60);
+    var seconds = Math.floor(currentTime % 60);
+    var formattedTime = minutes + ':' + seconds;
+
+    // + (seconds < 10 ? '0' : '') 
+
+    // Update the text inside the <span> element
+    currentTimeSpan.innerText = formattedTime;
+    console.log(formattedTime);
+  });
+
+ 
+}

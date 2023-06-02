@@ -82,6 +82,11 @@ nav ul li {
   align-items: center;
   border-radius: 23px;
 }
+.songItem :hover{
+  color: red;
+}
+
+
 .songItem img {
   width: 40px;
   margin: 0 23px;
