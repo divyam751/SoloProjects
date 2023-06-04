@@ -1,5 +1,3 @@
-// console.log("Welcome to my App");
-
 let index = 0;
 let audioElement = new Audio("songs/1.mp3");
 let masterPlay = document.getElementById("MasterPlay");
@@ -13,7 +11,9 @@ const updatedTime = document.getElementById("updatedTime");
 
 audioElement.addEventListener(`timeupdate`,function(){
   let currentTime = audioElement.currentTime;
-
+  if(currentTime > (songs[index].sDuration)){
+      document.getElementById("next").click();
+  }
   let minutes = Math.floor(currentTime / 60);
   let seconds = Math.floor(currentTime % 60);
   if (seconds < 10) {
@@ -23,8 +23,6 @@ audioElement.addEventListener(`timeupdate`,function(){
     minutes = '0' + minutes;
   }
   let formattedTime = minutes + ':' + seconds;
-
-
   updatedTime.innerText = formattedTime;
 })
 
@@ -34,38 +32,44 @@ let songs = [
     songName: "Get Ready To Fight",
     filePath: "songs/1.mp3",
     coverPath: "covers/1.jpg",
-    totalTime : "00:42  "
-    
+    totalTime : "00:42",
+    sDuration: "42",
+        
   },
   {
     songName: "Brother anthem",
     filePath: "songs/2.mp3",
     coverPath: "covers/2.jpg",
-    totalTime: "03:25  "
+    totalTime: "03:25  ",
+    sDuration: "204",
   },
   {
     songName: "Alan Walker – On My Way",
     filePath: "songs/3.mp3",
     coverPath: "covers/3.jpg",
-    totalTime: "03:36  "
+    totalTime: "03:15  ",
+    sDuration:  "196",
   },
   {
     songName: "TONES DANCE MONKEY",
     filePath: "songs/4.mp3",
     coverPath: "covers/4.jpg",
-    totalTime: "04:07  "
+    totalTime: "04:07  ",
+    sDuration: "247",
   },
   {
     songName: "John legend - All of me",
     filePath: "songs/5.mp3",
     coverPath: "covers/5.jpg",
-    totalTime: "05:07  "
+    totalTime: "04:38  ",
+    sDuration: "278",
   },
   {
     songName: "Alan walker - The Spectre ",
     filePath: "songs/6.mp3",
     coverPath: "covers/6.jpg",
-    totalTime: "03:25  "
+    totalTime: "03:08  ",
+    sDuration: "188",
   },
 ];
 
@@ -73,7 +77,7 @@ songItems.forEach((element, i) => {
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
   element.getElementsByClassName("songDuration")[0].innerText = songs[i].totalTime;
-});
+  });
 
 //Handle Play Pause Button
 masterPlay.addEventListener("click", () => {
@@ -139,7 +143,6 @@ audioElement.addEventListener("timeupdate", () => {
         e.target.classList.remove("fa-play-circle");
         e.target.classList.add("fa-pause-circle");
         ds.innerText = songs[index].songName;
-        // sDuration.innerText = "time updated";
         audioElement.src = `songs/${index+1}.mp3`;
         audioElement.currentTime = 0;
         audioElement.play();
@@ -149,7 +152,6 @@ audioElement.addEventListener("timeupdate", () => {
     });
   }
 );
-
 document.getElementById(`next`).addEventListener('click',()=>{
     if(index == 5){
       index = 0 ;
