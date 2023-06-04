@@ -18,7 +18,6 @@ nav ul {
   list-style-type: none;
   height: 65px;
   background-color: black;
-  /* background-color: purple; */
   color: white;
 }
 nav ul li {
@@ -51,6 +50,11 @@ nav a{
   padding: 34px;
   background-image: url("bg3.jpg");
 }
+h1:hover{
+  color: pink;
+}
+
+
 .bottom {
   position: sticky;
   height: 100px;
