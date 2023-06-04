@@ -7,6 +7,8 @@ With this application, I aim to combine the power of technology with the univers
 
 Melodix is a simple music player web application that allows you to listen to your favourite songs. It provides a user-friendly interface where you can browse and play songs from a curated playlist. This project can be easily hosted on any web server and accessed through a web browser.
 
+![Divyam(Melodix)](https://github.com/divyam751/SoloProjects/assets/125983433/f68739de-c523-49e7-9ac7-d819870be5a6)
+
 ## Features
 
 - Play and pause songs
