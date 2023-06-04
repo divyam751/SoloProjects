@@ -71,6 +71,9 @@ nav ul li {
 .songItemContainer {
   margin-top: 70px;
 }
+.songItemContainer :hover {
+  background-color: yellowgreen;
+}
 .songItem {
   height: 50px;
   width: 80%;
@@ -82,16 +85,14 @@ nav ul li {
   align-items: center;
   border-radius: 23px;
 }
-.songItem :hover{
-  color: red;
-}
-
 
 .songItem img {
   width: 40px;
   margin: 0 23px;
   border-radius: 34px;
+  border: 4px solid white;
 }
+
 .timeStamp {
   margin: 0 23px;
 }
@@ -99,8 +100,11 @@ nav ul li {
   cursor: pointer;
 }
 .songInfo {
+  margin-top: 40px;
+  margin-left: 40px;
   display: flex;
   align-items: center;
+  gap: 20px;
   position: absolute;
   left: 0;
   font-family: "Varela Round", sans-serif;

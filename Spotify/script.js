@@ -7,9 +7,26 @@ let myProgressBar = document.getElementById("myProgressBar");
 let gif = document.getElementById("gif");
 let ds = document.getElementById("songDesc");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
-let sDuration = document.getElementsByClassName("timeStamp");
-const currentTimeSpan = document.getElementsByClassName("updatedTime");
 
+const updatedTime = document.getElementById("updatedTime");
+
+
+audioElement.addEventListener(`timeupdate`,function(){
+  let currentTime = audioElement.currentTime;
+
+  let minutes = Math.floor(currentTime / 60);
+  let seconds = Math.floor(currentTime % 60);
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+  let formattedTime = minutes + ':' + seconds;
+
+
+  updatedTime.innerText = formattedTime;
+})
 
 
 let songs = [
@@ -63,8 +80,6 @@ masterPlay.addEventListener("click", () => {
   if (audioElement.paused || audioElement.currentTime <= 0) {
     audioElement.play();
     ds.innerText = songs[index].songName;
-    currentTimeSpan.innerText = "1050";
-
 
 
     removePlayButton(index);
@@ -115,11 +130,7 @@ audioElement.addEventListener("timeupdate", () => {
       );
     };
     
-    const songDuration = (audioElement)=>{
-        sDuration.innerText = "time updated";
-        console.log(audioElement.duration);
-    }
-
+  
   Array.from(document.getElementsByClassName("songItemPlay")).forEach(
     (element) => {
       element.addEventListener("click", (e) => {
@@ -128,7 +139,7 @@ audioElement.addEventListener("timeupdate", () => {
         e.target.classList.remove("fa-play-circle");
         e.target.classList.add("fa-pause-circle");
         ds.innerText = songs[index].songName;
-        sDuration.innerText = "time updated";
+        // sDuration.innerText = "time updated";
         audioElement.src = `songs/${index+1}.mp3`;
         audioElement.currentTime = 0;
         audioElement.play();
@@ -180,7 +191,6 @@ document.getElementById("previous").addEventListener('click',()=>{
       removePauseButton(index+1);
     }
     ds.innerText = songs[index].songName;
-    showCurrentTime();
    
     audioElement.src = `songs/${index+1}.mp3`;
     audioElement.currentTime = 0;
@@ -190,35 +200,4 @@ document.getElementById("previous").addEventListener('click',()=>{
     gif.style.opacity = 1;
 });
 
-function showCurrentTime() {
-  // Get the <span> element
-  // let currentTimeSpan = document.getElementsByClassName("songTimeUpdate");
 
-  
-
-  // Update the current time when the song is playing
-  audioElement.addEventListener('timeupdate', function() {
-    var currentTime = audioElement.currentTime;
-
-    // Format the current time as minutes and seconds
-    var minutes = Math.floor(currentTime / 60);
-    var seconds = Math.floor(currentTime % 60);
-    var formattedTime = minutes + ':' + seconds;
-
-    // + (seconds < 10 ? '0' : '') 
-
-    // Update the text inside the <span> element
-
-
-    // var formattedTime ="00:50";
-    currentTimeSpan.innerText = formattedTime;
-    // currentTimeSpan.innerText = 100;
-    
-    console.log(formattedTime);
-  });
-
-  // Js Function to get audio total time
-
-  
- 
-}
