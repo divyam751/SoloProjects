@@ -1,4 +1,4 @@
-console.log("Welcome to my App");
+// console.log("Welcome to my App");
 
 let index = 0;
 let audioElement = new Audio("songs/1.mp3");
@@ -8,38 +8,46 @@ let gif = document.getElementById("gif");
 let ds = document.getElementById("songDesc");
 // let songTime = document.getElementsByClassName("songTime");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
+let sDuration = document.getElementsByClassName("timeStamp");
+
 
 let songs = [
   {
     songName: "Get Ready To Fight",
     filePath: "songs/1.mp3",
     coverPath: "covers/1.jpg",
-    songTime : showCurrentTime(),
+    totalTime : "00:42  "
+    
   },
   {
     songName: "Brother anthem",
     filePath: "songs/2.mp3",
     coverPath: "covers/2.jpg",
+    totalTime: "03:25  "
   },
   {
     songName: "Alan Walker – On My Way",
     filePath: "songs/3.mp3",
     coverPath: "covers/3.jpg",
+    totalTime: "03:36  "
   },
   {
     songName: "TONES DANCE MONKEY",
     filePath: "songs/4.mp3",
     coverPath: "covers/4.jpg",
+    totalTime: "04:07  "
   },
   {
     songName: "John legend - All of me",
     filePath: "songs/5.mp3",
     coverPath: "covers/5.jpg",
+    totalTime: "05:07  "
   },
   {
     songName: "Alan walker - The Spectre ",
     filePath: "songs/6.mp3",
     coverPath: "covers/6.jpg",
+    totalTime: "03:25  "
   },
 ];
 
@@ -47,6 +55,7 @@ songItems.forEach((element, i) => {
   // console.log(element, i);
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
+  element.getElementsByClassName("songDuration")[0].innerText = songs[i].totalTime;
   // ds.innerText = songs[i].songName;
 });
 
@@ -58,7 +67,7 @@ masterPlay.addEventListener("click", () => {
     // displaySong();
     // ds.innerText = `${songs[0].songName}`;
     ds.innerText = songs[index].songName;
-    showCurrentTime();
+    // showCurrentTime();
 
 
 
@@ -70,7 +79,7 @@ masterPlay.addEventListener("click", () => {
     audioElement.pause();
     // displaySong();
     ds.innerText = songs[index].songName;
-    showCurrentTime();
+    // showCurrentTime();
     removePauseButton(index);
     masterPlay.classList.remove("fa-pause-circle");
     masterPlay.classList.add("fa-play-circle");
@@ -81,61 +90,72 @@ masterPlay.addEventListener("click", () => {
 function removePlayButton(index) {
   const playButton = document.getElementById(`${index}`);
   if (playButton) {
-      playButton.classList.remove('fa-play-circle');
-      playButton.classList.add('fa-pause-circle');
-    }
+    playButton.classList.remove('fa-play-circle');
+    playButton.classList.add('fa-pause-circle');
   }
-  function removePauseButton(index) {
-    const playButton = document.getElementById(`${index}`);
-    if (playButton) {
-      playButton.classList.remove('fa-pause-circle');
-      playButton.classList.add('fa-play-circle');
-    }
+}
+function removePauseButton(index) {
+  const playButton = document.getElementById(`${index}`);
+  if (playButton) {
+    playButton.classList.remove('fa-pause-circle');
+    playButton.classList.add('fa-play-circle');
   }
+}
 audioElement.addEventListener("timeupdate", () => {
   // console.log("timeupdate");
-  console.log(parseInt(audioElement.currentTime));
-
-
-
-
-
+  // console.log(parseInt(audioElement.currentTime));
   let progress = parseInt(
     (audioElement.currentTime / audioElement.duration) * 100
-  );
-  // console.log(progress);
-  myProgressBar.value = progress;
-});
-
-myProgressBar.addEventListener("change", () => {
-  audioElement.currentTime =
-    (myProgressBar.value * audioElement.duration) / 100;
-});
-
-const makeAllPlays = () => {
-  Array.from(document.getElementsByClassName("songItemPlay")).forEach(
-    (element) => {
-      element.classList.remove("fa-pause-circle");
-      element.classList.add("fa-play-circle");
-     
-      // songTime.innerText = parseInt(audioElement.currentTime);
-    }
     );
-  };
+    // console.log(progress);
+    myProgressBar.value = progress;
+  });
   
+  myProgressBar.addEventListener("change", () => {
+    audioElement.currentTime =
+    (myProgressBar.value * audioElement.duration) / 100;
+  });
+  
+  const makeAllPlays = () => {
+    Array.from(document.getElementsByClassName("songItemPlay")).forEach(
+      (element) => {
+        element.classList.remove("fa-pause-circle");
+        element.classList.add("fa-play-circle");
+        
+        // songTime.innerText = parseInt(audioElement.currentTime);
+      }
+      );
+    };
+    
+    const songDuration = (audioElement)=>{
+        // return (audioElement.duration);
+        sDuration.innerText = "time updated";
+        console.log(audioElement.duration);
+    }
+
   Array.from(document.getElementsByClassName("songItemPlay")).forEach(
     (element) => {
       element.addEventListener("click", (e) => {
-      makeAllPlays();
-      index = parseInt(e.target.id);
-      e.target.classList.remove("fa-play-circle");
-      e.target.classList.add("fa-pause-circle");
-      audioElement.src = `songs/${index+1}.mp3`;
-      audioElement.currentTime = 0;
-      audioElement.play();
-      gif.style.opacity = 1;
-      masterPlay.classList.remove("fa-paly-circle");
-      masterPlay.classList.add("fa-pause-circle");
+        makeAllPlays();
+        index = parseInt(e.target.id);
+        e.target.classList.remove("fa-play-circle");
+        e.target.classList.add("fa-pause-circle");
+        ds.innerText = songs[index].songName;
+        // console.log(songs[index].songName);
+        // console.log(audioElement.duration);
+        
+        // songDuration(audioElement);
+        sDuration.innerText = "time updated";
+        
+        
+        
+        
+        audioElement.src = `songs/${index+1}.mp3`;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        gif.style.opacity = 1;
+        masterPlay.classList.remove("fa-paly-circle");
+        masterPlay.classList.add("fa-pause-circle");
     });
   }
 );
@@ -147,7 +167,7 @@ document.getElementById(`next`).addEventListener('click',()=>{
     else{
       index += 1;
     }
-    console.log(index);
+    // console.log(index);
     ds.innerText = songs[index].songName;
     removePlayButton(index);
     if(index > 0){
@@ -181,7 +201,7 @@ document.getElementById("previous").addEventListener('click',()=>{
       removePlayButton(index);
       removePauseButton(index+1);
     }
-    console.log(index);
+    // console.log(index);
     ds.innerText = songs[index].songName;
    
     audioElement.src = `songs/${index+1}.mp3`;
@@ -191,21 +211,6 @@ document.getElementById("previous").addEventListener('click',()=>{
     masterPlay.classList.add("fa-pause-circle");
     gif.style.opacity = 1;
 });
-
-const displaySong = ()=>{
-  
-  let ds = document.getElementById("songDesc");
-  switch (index){
-    case 0 : ds.innerText = "1st song";
-    case 1 : ds.innerText = "2st song";
-    
-    
-    
-  }
-}
-
-
-
 
 function showCurrentTime() {
   // Get the <span> element
@@ -226,8 +231,11 @@ function showCurrentTime() {
 
     // Update the text inside the <span> element
     currentTimeSpan.innerText = formattedTime;
-    console.log(formattedTime);
+    // console.log(formattedTime);
   });
 
+  // Js Function to get audio total time
+
+  
  
 }
