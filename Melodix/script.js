@@ -201,5 +201,3 @@ document.getElementById("previous").addEventListener('click',()=>{
     masterPlay.classList.add("fa-pause-circle");
     gif.style.opacity = 1;
 });
-
-
