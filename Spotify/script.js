@@ -6,9 +6,10 @@ let masterPlay = document.getElementById("MasterPlay");
 let myProgressBar = document.getElementById("myProgressBar");
 let gif = document.getElementById("gif");
 let ds = document.getElementById("songDesc");
-// let songTime = document.getElementsByClassName("songTime");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
 let sDuration = document.getElementsByClassName("timeStamp");
+const currentTimeSpan = document.getElementsByClassName("updatedTime");
+
 
 
 let songs = [
@@ -52,22 +53,17 @@ let songs = [
 ];
 
 songItems.forEach((element, i) => {
-  // console.log(element, i);
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
   element.getElementsByClassName("songDuration")[0].innerText = songs[i].totalTime;
-  // ds.innerText = songs[i].songName;
 });
 
 //Handle Play Pause Button
 masterPlay.addEventListener("click", () => {
   if (audioElement.paused || audioElement.currentTime <= 0) {
-    // console.log("played");
     audioElement.play();
-    // displaySong();
-    // ds.innerText = `${songs[0].songName}`;
     ds.innerText = songs[index].songName;
-    // showCurrentTime();
+    currentTimeSpan.innerText = "1050";
 
 
 
@@ -77,9 +73,7 @@ masterPlay.addEventListener("click", () => {
     gif.style.opacity = 1;
   } else {
     audioElement.pause();
-    // displaySong();
     ds.innerText = songs[index].songName;
-    // showCurrentTime();
     removePauseButton(index);
     masterPlay.classList.remove("fa-pause-circle");
     masterPlay.classList.add("fa-play-circle");
@@ -102,12 +96,7 @@ function removePauseButton(index) {
   }
 }
 audioElement.addEventListener("timeupdate", () => {
-  // console.log("timeupdate");
-  // console.log(parseInt(audioElement.currentTime));
-  let progress = parseInt(
-    (audioElement.currentTime / audioElement.duration) * 100
-    );
-    // console.log(progress);
+  let progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
     myProgressBar.value = progress;
   });
   
@@ -122,13 +111,11 @@ audioElement.addEventListener("timeupdate", () => {
         element.classList.remove("fa-pause-circle");
         element.classList.add("fa-play-circle");
         
-        // songTime.innerText = parseInt(audioElement.currentTime);
       }
       );
     };
     
     const songDuration = (audioElement)=>{
-        // return (audioElement.duration);
         sDuration.innerText = "time updated";
         console.log(audioElement.duration);
     }
@@ -141,15 +128,7 @@ audioElement.addEventListener("timeupdate", () => {
         e.target.classList.remove("fa-play-circle");
         e.target.classList.add("fa-pause-circle");
         ds.innerText = songs[index].songName;
-        // console.log(songs[index].songName);
-        // console.log(audioElement.duration);
-        
-        // songDuration(audioElement);
         sDuration.innerText = "time updated";
-        
-        
-        
-        
         audioElement.src = `songs/${index+1}.mp3`;
         audioElement.currentTime = 0;
         audioElement.play();
@@ -167,7 +146,6 @@ document.getElementById(`next`).addEventListener('click',()=>{
     else{
       index += 1;
     }
-    // console.log(index);
     ds.innerText = songs[index].songName;
     removePlayButton(index);
     if(index > 0){
@@ -201,8 +179,8 @@ document.getElementById("previous").addEventListener('click',()=>{
       removePlayButton(index);
       removePauseButton(index+1);
     }
-    // console.log(index);
     ds.innerText = songs[index].songName;
+    showCurrentTime();
    
     audioElement.src = `songs/${index+1}.mp3`;
     audioElement.currentTime = 0;
@@ -214,7 +192,7 @@ document.getElementById("previous").addEventListener('click',()=>{
 
 function showCurrentTime() {
   // Get the <span> element
-  var currentTimeSpan = document.getElementById('current-time');
+  // let currentTimeSpan = document.getElementsByClassName("songTimeUpdate");
 
   
 
@@ -230,8 +208,13 @@ function showCurrentTime() {
     // + (seconds < 10 ? '0' : '') 
 
     // Update the text inside the <span> element
+
+
+    // var formattedTime ="00:50";
     currentTimeSpan.innerText = formattedTime;
-    // console.log(formattedTime);
+    // currentTimeSpan.innerText = 100;
+    
+    console.log(formattedTime);
   });
 
   // Js Function to get audio total time

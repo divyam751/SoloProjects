@@ -110,3 +110,6 @@ nav ul li {
   opacity: 0;
   transition: opacity 1s ease-in;
 }
+.songTimeUpdate{
+  color: white;
+}
