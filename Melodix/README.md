@@ -9,6 +9,8 @@ Melodix is a simple music player web application that allows you to listen to yo
 
 ![Divyam(Melodix)](https://github.com/divyam751/SoloProjects/assets/125983433/f68739de-c523-49e7-9ac7-d819870be5a6)
 
+![image](https://github.com/divyam751/SoloProjects/assets/125983433/2c0373ec-465d-482a-b34d-1b87474d734b)
+
 ## Features
 
 - Play and pause songs
