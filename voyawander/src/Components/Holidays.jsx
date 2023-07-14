@@ -7,11 +7,11 @@ const Holidays = () => {
     <div id='holidays'>
       <div id='text'>
         <Heading>Find Popular Destinations</Heading>
-        <Text>
+        <text>
           Escape the ordinary and explore the extraordinary - with our
           handpicked selection of destinatations and travel deails. you will be
           able to create the trip of your dreams.
-        </Text>
+        </text>
       </div>
       <div id='holidaysContainer'>
         <div class='box'>

@@ -1,20 +1,21 @@
 #about {
-  /* height: 100vh; */
-  /* background: url("https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"); */
-  background-size: cover;
   padding-top: 10%;
   margin-bottom: 30px;
 }
 .aboutContainer {
   display: flex;
-  /* justify-content: space-around; */
 }
 #text {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-bottom: 40px;
+  align-items: center;
 }
+text {
+  width: 60%;
+}
+
 #box {
   display: flex;
   flex-direction: column;
@@ -71,6 +72,9 @@
     border-radius: 20px;
     margin: 20px;
   }
+  text {
+    width: 90%;
+  }
 }
 @media only Screen and (max-width: 550px) {
   #box {
@@ -88,5 +92,8 @@
   }
   #text {
     padding: 10px;
+  }
+  text {
+    width: 90%;
   }
 }
