@@ -30,4 +30,5 @@ Embark on your next Voyawander and let the world be your playground! 🌍✈️
 
 ## Screenshot
 
-![Voyawander](https://github.com/divyam751/Porject_Images/assets/125983433/fc3863ad-111f-4d29-b0d8-3f02b139317d)
+![Voyawander](https://github.com/divyam751/divyam751.github.io/assets/125983433/264ba251-76fd-49b7-b6e5-2edf0d2b63f5)
+

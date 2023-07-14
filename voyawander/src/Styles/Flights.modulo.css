@@ -13,6 +13,19 @@
   gap: 20px;
   padding-bottom: 40px;
 }
+.textText {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.textText div {
+  width: 60%;
+}
+
+text {
+  align-items: center;
+}
 .flightContainer {
   display: flex;
   justify-content: space-around;

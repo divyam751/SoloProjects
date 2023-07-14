@@ -19,6 +19,9 @@
   padding-bottom: 40px;
   width: 90%;
 }
+text {
+  align-items: center;
+}
 
 .contactInfo {
   display: flex;
