@@ -1,4 +1,4 @@
-import { Button, Heading, Text } from "@chakra-ui/react";
+import { Button, Heading } from "@chakra-ui/react";
 import React from "react";
 import "../Styles/Contact.modulo.css";
 

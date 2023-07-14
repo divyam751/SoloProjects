@@ -3,12 +3,10 @@
   background: url("https://user-images.githubusercontent.com/125983433/252314126-de30aee0-b6fc-47e1-bcba-229e7538b674.png");
   background-size: cover;
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  /* border: 2px solid; */
 }
 .resp {
   display: flex;
@@ -16,12 +14,10 @@
   align-items: center;
   width: 96%;
   gap: 2%;
-  /* border: 4px solid black; */
 }
 
 #imgSection {
   display: flex;
-  /* border: 2px solid; */
   width: 30%;
   height: 60vh;
 }
@@ -47,7 +43,6 @@
   width: 60%;
   height: 100%;
   padding: 20px;
-  /* border: 2px solid; */
 }
 
 #main {

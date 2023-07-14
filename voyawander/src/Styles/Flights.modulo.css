@@ -20,11 +20,9 @@
 }
 .flightCard {
   width: 30%;
-  /* height: 400px; */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 10px;
   border-radius: 10%;
-  /* border: 2px solid black; */
 }
 img {
   width: 100%;
@@ -41,11 +39,9 @@ img {
   }
   .flightCard {
     width: 50%;
-    /* height: 400px; */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 10px;
     border-radius: 10%;
-    /* border: 2px solid black; */
   }
   #flights {
     height: auto;

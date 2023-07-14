@@ -1,4 +1,4 @@
-import { Heading, Text } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 import React from "react";
 import "../Styles/About.modulo.css";
 import { GiCommercialAirplane } from "react-icons/gi";
