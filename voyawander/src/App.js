@@ -7,7 +7,6 @@ import Flights from "./Components/Flights";
 import Holidays from "./Components/Holidays";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
-// import Navbar2 from "./Components/Navbar2";
 
 function App() {
   return (
