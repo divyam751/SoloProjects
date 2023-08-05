@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Train Ticket Booking</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div class="body">
+      <nav>
+        <div id="logo">
+          <img
+            id="logoImg"
+            src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f682.svg"
+            alt="logo"
+          />
+          <h1>Train Ticket Booking</h1>
+        </div>
+        <div id="links">
+          <ul>
+            <li>
+              <a href="/index.html">Registration Page</a>
+            </li>
+            <li>
+              <a href="/dashboard.html">Dashboard Page</a>
+            </li>
+            <li>
+              <a href="/booking.html">Booking Page</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <h1>Registration Page</h1>
+
+      <form onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Unique Id" id="uniqueId" required />
+        <input
+          type="text"
+          placeholder="Enter Your Name"
+          id="userName"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Enter Your Age"
+          id="userAge"
+          required
+        />
+        <select id="fromStation">
+          <option>From Station</option>
+          <option value="Banglore">Banglore</option>
+          <option value="Pune">Pune</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Mumbai">Mumbai</option>
+        </select>
+        <select id="toStation">
+          <option>To Station</option>
+          <option value="Banglore">Banglore</option>
+          <option value="Pune">Pune</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Mumbai">Mumbai</option>
+        </select>
+        <input type="date" id="travelDate" />
+        <select id="seatType">
+          <option disabled selected>Seat Type</option>
+          <option value="AC First Class">AC First Class</option>
+          <option value="Sleeper Class">Sleeper Class</option>
+          <option value="Second Class">Second Class</option>
+          <option value="General">General</option>
+        </select>
+        <div id="button">
+          <input type="submit" id="submit" />
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="./scripts/index.js"></script>
+</html>

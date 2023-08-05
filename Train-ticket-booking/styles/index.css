@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  color: white;
+  width: 90%;
+  position: sticky;
+}
+#logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+#logoImg {
+  width: 50px;
+}
+#links {
+  display: flex;
+  align-items: center;
+}
+ul {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: skyblue;
+  height: 100vh;
+  color: black;
+
+  background-image: url("https://media.istockphoto.com/id/1168092599/photo/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare.webp?b=1&s=170667a&w=0&k=20&c=lH_Zl3mfi8VAhZt-WBsKism0bjOYjkDCX82o_HT2n7g=");
+
+  background-size: cover;
+}
+form {
+  padding: 30px 30px;
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: transparent;
+}
+input {
+  font-size: 20px;
+}
+select {
+  font-size: 20px;
+}
+#submit {
+  background-color: green;
+  color: white;
+  width: 30%;
+  padding: 10px;
+  font-weight: bold;
+}
+#button {
+  display: flex;
+  justify-content: center;
+}
