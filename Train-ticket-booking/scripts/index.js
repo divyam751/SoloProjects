@@ -46,7 +46,7 @@ const handleSubmit = (event) => {
   }
   if (seatType === "Seat Type") {
     alert("Please select Seat Type");
-    return
+    return;
   }
 
   users.push(userData);

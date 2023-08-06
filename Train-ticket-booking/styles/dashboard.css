@@ -72,3 +72,35 @@ tr {
   color: white;
   padding: 6px 20px;
 }
+
+/* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+#otpBox {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 40px;
+  gap: 40px;
+}
+#otpBlock {
+  display: flex;
+  gap: 20px;
+}
+.box {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+.BTN {
+  padding: 4px 10px;
+  font-size: 20px;
+  background-color: green;
+  color: white;
+}

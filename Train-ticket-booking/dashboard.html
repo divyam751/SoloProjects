@@ -34,8 +34,32 @@
 
       <h1>Dashboard Page</h1>
 
+      <div id="otherOptions">
+        <!-- Filter option -->
+        <select id="filterSeatType" onchange="handleFilter()">
+          <option value="all">Filter By Seat Type</option>
+          <option value="AC First Class">AC First Class</option>
+          <option value="Sleeper Class">Sleeper Class</option>
+          <option value="Second Class">Second Class</option>
+          <option value="General">General</option>
+        </select>
+
+        <!-- Sort By Age -->
+        <select id="sortByAge" onchange="handleSortAge()">
+          <option disabled selected>Sort By Age</option>
+          <option value="Ascending">Ascending</option>
+          <option value="Descending">Descending</option>
+        </select>
+        <!-- Sort By Journey Date -->
+        <select id="sortByJourneyDate" onchange="handleSortDate()">
+          <option disabled selected>Sort By Joutney Date</option>
+          <option value="Ascending">Ascending</option>
+          <option value="Descending">Descending</option>
+        </select>
+      </div>
+
       <div id="userDetails">
-        <table>
+        <table id="userDataTable">
           <thead>
             <tr>
               <th>Unique ID</th>
@@ -52,6 +76,7 @@
           <tbody></tbody>
         </table>
       </div>
+      <div class="otpSection"></div>
     </div>
   </body>
   <script src="./scripts/dashboard.js"></script>
