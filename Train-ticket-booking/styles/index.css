@@ -40,7 +40,8 @@ a {
   /* justify-content: center; */
   align-items: center;
   background-color: skyblue;
-  height: 100vh;
+  /* height: 100vh; */
+  width: 100%;
   color: black;
 
   background-image: url("https://media.istockphoto.com/id/1168092599/photo/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare.webp?b=1&s=170667a&w=0&k=20&c=lH_Zl3mfi8VAhZt-WBsKism0bjOYjkDCX82o_HT2n7g=");
@@ -49,7 +50,8 @@ a {
 }
 form {
   padding: 30px 30px;
-  width: 300px;
+  /* width: 300px; */
+  width: 30%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
